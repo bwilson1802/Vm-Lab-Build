@@ -36,17 +36,6 @@ Start-VM –Name RTR
 Get-VM RTR
 connect-vm
 
-new-netipaddress -InterfaceIndex 2 -IPAddress 10.10.1.1 -PrefixLength 26 -AddressFamily IPv4 -defaultgateway 10.10.0.1  
-Set-DnsClientServerAddress -InterfaceIndex 2 -serveraddress 10.10.1.10
-
-new-netipaddress -InterfaceIndex 2 -IPAddress 10.10.1.1 -PrefixLength 26 -AddressFamily IPv4 -defaultgateway 10.10.0.1  
-Set-DnsClientServerAddress -InterfaceIndex 2 -serveraddress 10.10.1.10
-
-new-netipaddress -InterfaceIndex 2 -IPAddress 10.10.1.1 -PrefixLength 26 -AddressFamily IPv4 -defaultgateway 10.10.0.1  
-Set-DnsClientServerAddress -InterfaceIndex 2 -serveraddress 10.10.1.10
-
-new-netipaddress -InterfaceIndex 2 -IPAddress 10.10.1.1 -PrefixLength 26 -AddressFamily IPv4 -defaultgateway 10.10.0.1  
-Set-DnsClientServerAddress -InterfaceIndex 2 -serveraddress 10.10.1.10
 
 ############
 New-VM -Name LON-DC1 -MemoryStartupBytes 512MB -Path C:\ProgramData\Microsoft\Windows\Hyper-V\
@@ -56,8 +45,6 @@ Set-VMDvdDrive -VMName LON-DC1 -ControllerNumber 1 -Path "C:\Users\bwils\Desktop
 Start-VM –Name LON-DC1
 Get-VM LON-DC1
 
-new-netipaddress -InterfaceIndex 2 -IPAddress 10.10.1.10 -PrefixLength 26 -AddressFamily IPv4 -defaultgateway 10.10.0.1  
-Set-DnsClientServerAddress -InterfaceIndex 2 -serveraddress 10.10.1.10
 
 ############
 New-VM -Name LON-SVR1 -MemoryStartupBytes 512MB -Path C:\ProgramData\Microsoft\Windows\Hyper-V\
@@ -67,8 +54,6 @@ Set-VMDvdDrive -VMName LON-SVR1 -ControllerNumber 1 -Path "C:\Users\bwils\Deskto
 Start-VM –Name LON-SVR1
 Get-VM LON-SVR1
 
-new-netipaddress -InterfaceIndex 2 -IPAddress 10.10.1.11 -PrefixLength 26 -AddressFamily IPv4 -defaultgateway 10.10.0.1  
-Set-DnsClientServerAddress -InterfaceIndex 2 -serveraddress 10.10.1.10
 
 ############
 New-VM -Name LON-SVR2 -MemoryStartupBytes 512MB -Path C:\ProgramData\Microsoft\Windows\Hyper-V\
@@ -77,9 +62,6 @@ Add-VMHardDiskDrive -VMName LON-SVR2 -Path "C:\Users\Public\Documents\Hyper-V\Vi
 Set-VMDvdDrive -VMName LON-SVR2 -ControllerNumber 1 -Path "C:\Users\bwils\Desktop\MSSA\ISO\Windows_Server_2016_Datacenter_EVAL_en-us_14393_refresh.ISO"
 Start-VM –Name LON-SVR2
 Get-VM LON-SVR2
-
-new-netipaddress -InterfaceIndex 2 -IPAddress 10.10.1.12 -PrefixLength 26 -AddressFamily IPv4 -defaultgateway 10.10.0.1  
-Set-DnsClientServerAddress -InterfaceIndex 2 -serveraddress 10.10.1.10
 
 
 
@@ -160,15 +142,6 @@ Get-VM $VMName
 #ok
 #Pa55w.rd tab Pa55w.rd
 #ok
-
-<#
-PSSession for vitural switch & config IP
-
-#>
-
-Set-ExecutionPolicy RemoteSigned
-Enable-PSremoting
-Get-PSSessionConfiguration
 
 
 
